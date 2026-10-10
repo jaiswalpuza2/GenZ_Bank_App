@@ -1,0 +1,16 @@
+{
+  // Workspace root tsconfig — does not type-check any source directly.
+  // All source lives in frontend/ and backend/; run type checks there.
+  //
+  //   npm run typecheck            — check both workspaces
+  //   npm run typecheck:frontend   — check frontend/ only
+  //   npm run typecheck:backend    — check backend/ only
+  //
+  // This file exists so editors opened at the project root have a tsconfig
+  // anchor. It deliberately includes nothing.
+  "files": [],
+  "references": [
+    { "path": "./frontend" },
+    { "path": "./backend" }
+  ]
+}

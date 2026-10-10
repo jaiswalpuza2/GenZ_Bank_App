@@ -1,0 +1,14 @@
+{
+  "methods": ["google", "apple", "x", "email"],
+  "headline": "Welcome to GenZ Bank",
+  "subtitle": "Secure sign-in for your simulated banking experience.",
+  "style": {
+    "mode": "dark",
+    "accentColor": "#b8f36b",
+    "backgroundColor": "#0b0d12",
+    "panelColor": "#11141b",
+    "textColor": "#f4f6fb",
+    "fontFamily": "DM Sans, system-ui, sans-serif",
+    "borderRadius": 14
+  }
+}

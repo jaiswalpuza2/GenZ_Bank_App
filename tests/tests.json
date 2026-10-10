@@ -1,0 +1,72 @@
+[
+  {
+    "name": "Sign in and load a persistent demo account",
+    "sanity": true,
+    "viewport": "desktop",
+    "covers": [
+      "AppDeploy authentication",
+      "protected customer API",
+      "persistent account initialization",
+      "NPR demo balance"
+    ],
+    "description": "Verifies a customer can authenticate and load their own stored GenZ Bank demo account.",
+    "steps": [
+      "Choose Open a demo account",
+      "Complete the AppDeploy sign-in popup",
+      "Wait for the customer overview to load"
+    ],
+    "expected": "The authenticated customer sees a personalized overview, a demo balance in NPR, account activity, and the simulated-environment disclosure."
+  },
+  {
+    "name": "Record a demo deposit and export account activity",
+    "viewport": "desktop",
+    "covers": [
+      "POST /api/money-movement deposit",
+      "database persistence",
+      "transaction ledger",
+      "CSV statement export"
+    ],
+    "description": "Verifies a successful simulated deposit updates the displayed balance and ledger and can be exported.",
+    "steps": [
+      "Sign in to a demo account",
+      "Choose Demo deposit and enter NPR 500",
+      "Confirm the demo deposit",
+      "Open Transactions and export CSV"
+    ],
+    "expected": "The balance increases by NPR 500, a completed demo transaction with a reference appears, and a CSV statement downloads."
+  },
+  {
+    "name": "Reject an invalid or over-balance withdrawal",
+    "viewport": "desktop",
+    "covers": [
+      "server-side amount validation",
+      "insufficient-balance guardrail",
+      "visible API error state"
+    ],
+    "description": "Verifies invalid money movement requests are rejected by the backend and do not produce a success receipt.",
+    "steps": [
+      "Sign in to a demo account",
+      "Choose Demo withdrawal and enter an amount greater than the available demo balance",
+      "Confirm the operation"
+    ],
+    "expected": "An insufficient demo balance message appears and the stored account balance remains unchanged."
+  },
+  {
+    "name": "Create a savings goal and use mobile navigation",
+    "viewport": "mobile",
+    "covers": [
+      "POST /api/goals",
+      "savings goal persistence",
+      "responsive navigation",
+      "mobile layout"
+    ],
+    "description": "Verifies goal creation is visible after saving and key navigation works on a mobile viewport.",
+    "steps": [
+      "Sign in on a mobile viewport",
+      "Open navigation and choose Savings goals",
+      "Create a goal named First Laptop with a target of NPR 50000",
+      "Refresh the page and return to Savings goals"
+    ],
+    "expected": "The new goal remains visible after refresh, navigation remains usable on mobile, and the page has no horizontal overflow."
+  }
+]
